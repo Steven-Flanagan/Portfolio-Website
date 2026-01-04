@@ -82,10 +82,10 @@ const SkillsList = () => {
       </h3>
       <ul className="space-y-4 flex flex-wrap mt-4 text-lg">
         {Object.entries(skills).map(([category, items]) => (
-          <li key={category} className="w-full md:w-1/2 lg:w-1/3 flex justify-center items-end">
+          <li key={category} className="w-full lg:w-1/3 flex justify-center items-end">
             <div
               onClick={() => toggleItem(category)}
-              className="w-full bg-[#1414149c] mx-2 rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
+              className="w-full bg-[#1414149c] lg:mx-2 rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
             >
               <div className="flex items-center gap-3 p-4">
                 {CategoryIcons[category]}
