@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import comingsoon from "../../public/coming-soon.png";
 import portfoliosite from "../../public/Portfolio-Site-Screenshot.png";
+import sysadminscripts from "../../public/Sysadmin-Scripts-Screenshot.png";
 
 interface Project {
   title: string;
@@ -13,18 +14,18 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Sysadmin Scripts",
+    image: sysadminscripts as ImageMetadata,
+    link: "",
+    preview: "",
+    status: "Open-Source",
+  },
+  {
     title: "Portfolio Website",
     image: portfoliosite as ImageMetadata,
     link: "https://github.com/Steven-Flanagan/Portfolio-Website",
     preview: "https://stevenflanagan.dev",
     status: "Deployed",
-  },
-  {
-    title: "Project",
-    image: comingsoon as ImageMetadata,
-    link: "",
-    preview: "",
-    status: "In Development",
   },
   {
     title: "Project",
