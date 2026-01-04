@@ -1,0 +1,66 @@
+---
+import LetterGlitch from "../React/LetterGlitch.tsx";
+import LogoWall from "../components/logoWall.astro";
+import SkillsList from "../React/SkillsList.tsx";
+---
+
+<section class="text-[var(--white)] h-full mt-12 md:mt-12" id="home">
+  <div class="max-w-5xl mx-auto space-y-8 md:pt-36 pb-0 h-full">
+    <div class="text-left space-y-4">
+      <p class="text-md md:text-2xl text-[var(--white-icon)] shiny-white">
+        Hi, I'm Steven Flanagan
+      </p>
+      <div
+        class="flex flex-col space-y-4 lg:space-y-0 lg:space-x-0 md:gap-16"
+      >
+        <h1
+          class="text-[var(--white)] text-4xl md:text-6xl font-medium text-pretty leading-none"
+        >
+          Software Engineer <br /> & Systems Administrator
+        </h1>
+        <p class="text-md md:text-3xl text-[var(--white-icon)]">
+          Delivering well-engineered <span class="text-[var(--sec)] shiny-sec"
+          >full-stack software</span>. Backed by resilient <span class="text-[var(--sec)] shiny-sec">systems architecture</span> and operational procedures.
+        </p>
+      </div>
+    </div>
+
+    <LogoWall />
+
+    <div class="flex flex-col lg:flex-col gap-8">
+      <div
+        class="flex justify-center w-full md:h-[392px] size-[290px] pt-3 md:pt-0 md:ml-18"
+      >
+        <LetterGlitch
+          client:load
+          glitchColors={["#5e4491", "#A476FF", "#241a38"]}
+          glitchSpeed={33}
+          centerVignette={false}
+          outerVignette={true}
+          smooth={true}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .shiny-sec {
+    background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100% 50%;
+    }
+    30%,
+    70% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import LetterGlitch from "@/React/LetterGlitch"
+---
+
+<footer class="w-full border-t border-[#ffffff10]">
+  <div class="mx-auto">
+    <div class="mt-0 h-24 md:h-36 items-center flex justify-center">
+      <p class="text-center text-xs md:text-sm text-[var(--white-icon)]">
+        <span class="block sm:inline"
+          >Copyright © 2025 <a href="https://github.com/Steven-Flanagan"
+            ><span class="text-[var(--sec)] shiny-sec">Steven Flanagan</span></a
+          >. All rights reserved.</span
+        >
+      </p>
+    </div>
+    <div
+        class="flex justify-center md:w-full h-[35px] md:h-[35px] pt-0 md:pt-0 md:-ml-18"
+      >
+        <LetterGlitch
+          client:load
+          glitchColors={["#5e4491", "#A476FF", "#241a38"]}
+          glitchSpeed={33}
+          centerVignette={false}
+          outerVignette={true}
+          smooth={true}
+        />
+      </div>
+  </div>
+</footer>
