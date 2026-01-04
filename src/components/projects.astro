@@ -15,9 +15,7 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     image: portfoliosite as ImageMetadata,
-    // GitHub Link
-    link: "",
-    // Website Link
+    link: "https://github.com/Steven-Flanagan/Portfolio-Website",
     preview: "https://stevenflanagan.dev",
     status: "Deployed",
   },
@@ -67,7 +65,7 @@ const projects: Project[] = [
                 <Image
                   src={project.image}
                   alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                  class="w-full border rounded-2xl border-[var(--white-icon-tr)] h-48 md:h-72 object-cover group-hover:scale-95 transition-transform duration-300"
                 />
               </div>
               <div class="flex items-center px-3">

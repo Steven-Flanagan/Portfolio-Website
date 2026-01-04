@@ -38,20 +38,22 @@ const SkillsList = () => {
 
   const skills = {
     "Software Development": [
-      "Single Page Applications (SPAs)",
-      "Static Sites",
-      "Business automation software",
+      "Fast and Responsive Static Sites",
+      "Full-Stack Web Applications",
+      "Business Automation Software",
     ],
     "Infrastructure": [
-      "Cloud (AWS, Azure)",
-      "Physical Hardware [Servers, Switches, Firewalls, NAS]"
+      "Managed Cloud Services",
+      "Maintained Physical Hardware (Servers, Switches, Firewalls, Routers, NAS)"
     ],
     "Compliance": [
-      "Led several ISO27001:2022 audits",
-      "Implemented PCI/DSS Controls and procedures",
+      "Led several ISO27001 audits",
+      "Implemented PCI/DSS Controls",
+      "Maintained Gambling Commision Remote Technical Standards"
     ],
     "Security": [
-      "TEST",
+      "",
+      ""
     ],
     "Monitoring": [
       "TEST",
@@ -85,13 +87,13 @@ const SkillsList = () => {
           <li key={category} className="w-full lg:w-1/3 flex justify-center items-end">
             <div
               onClick={() => toggleItem(category)}
-              className="w-full bg-[#1414149c] lg:mx-2 rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
+              className="w-full hover:bg-[var(--white-icon-tr)] bg-[#1414149c] lg:mx-1 rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
             >
-              <div className="flex items-center gap-3 p-4">
+              <div className="flex items-center gap-3 p-6">
                 {CategoryIcons[category]}
                 <div className="flex items-center gap-2 flex-grow justify-between">
                   <div className="min-w-0 max-w-[200px] md:max-w-none overflow-hidden">
-                    <span className="block truncate text-[var(--white)] text-base md:text-lg">
+                    <span className="block truncate text-[var(--white)] text-base md:text-xl">
                       {category}
                     </span>
                   </div>
@@ -109,7 +111,7 @@ const SkillsList = () => {
                   {items.map((item, index) => (
                     <div key={index} className="flex items-center">
                       <span className="pl-1">•</span>
-                      <li className="pl-3">{item}</li>
+                      <li className="text-base pl-3">{item}</li>
                     </div>
                   ))}
                 </ul>
