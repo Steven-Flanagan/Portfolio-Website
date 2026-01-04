@@ -38,25 +38,29 @@ const SkillsList = () => {
 
   const skills = {
     "Software Development": [
-      "Fast and Responsive Static Sites",
-      "Full-Stack Web Applications",
-      "Business Automation Software",
+      "Fast and responsive static sites",
+      "Full-stack web applications",
+      "Business automation software",
     ],
     "Infrastructure": [
-      "Managed Cloud Services",
-      "Maintained Physical Hardware (Servers, Switches, Firewalls, Routers, NAS)"
+      "Cloud services (AWS, Azure)",
+      "Physical hardware maintenance (servers, switches, firewalls, routers, NAS)",
+      "Network Services (DHCP, DNS, VPN, SSL/TLS, IPS)"
     ],
     "Compliance": [
       "Led several ISO27001 audits",
-      "Implemented PCI/DSS Controls",
-      "Maintained Gambling Commision Remote Technical Standards"
+      "Implemented PCI/DSS controls",
+      "Maintained gambling commision remote technical standards"
     ],
     "Security": [
-      "",
-      ""
+      "Proactively scan domains and networks for threats",
+      "Patch software vulnerabilities",
+      "Perform digital forensic investigations after incidents",
     ],
     "Monitoring": [
-      "TEST",
+      "Collect and analyse important data like performance metrics, availability and resource utilisation ",
+      "Configure intelligent alert systems for quick responses",
+      "Easily visualise data using dashboard tools like Grafana"
     ],
     "CI / CD": [
       "TEST",
@@ -64,10 +68,10 @@ const SkillsList = () => {
     "Disaster Recovery": [
       "TEST",
     ],
-    "Skill 8": [
+    "Incident Response": [
       "TEST",
     ],
-    "Skill 9": [
+    "Customer Support": [
       "TEST",
     ],
   };
