@@ -63,16 +63,24 @@ const SkillsList = () => {
       "Easily visualise data using dashboard tools like Grafana"
     ],
     "CI / CD": [
-      "TEST",
+      "Automate testing, building, and deployment pipelines",
+      "Integrate version control with automated workflows (GitHub Actions)",
+      "Ensure rapid, reliable software releases with minimal manual intervention",
     ],
     "Disaster Recovery": [
-      "TEST",
+      "Design and implement backup strategies for critical systems",
+      "Create recovery plans to minimize downtime during outages",
+      "Test disaster recovery procedures to ensure business continuity",
     ],
     "Incident Response": [
-      "TEST",
+      "Quickly identify, contain, and resolve security incidents",
+      "Conduct post-incident analysis to prevent future occurrences",
+      "Coordinate communication during critical incidents",
     ],
     "Customer Support": [
-      "TEST",
+      "Provide technical assistance and troubleshooting for end users",
+      "Document common issues and create knowledge base articles",
+      "Deliver excellent service with clear, empathetic communication",
     ],
   };
 

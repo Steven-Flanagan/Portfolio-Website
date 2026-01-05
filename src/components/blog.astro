@@ -8,6 +8,10 @@ let posts = [];
 try {
   const feed = await parser.parseURL(MEDIUM_RSS_URL);
   posts = feed.items.slice(0, 3);
+  console.log('RSS Feed fetched successfully');
+  console.log('Total items in feed:', feed.items.length);
+  console.log('Posts to display:', posts.length);
+  console.log('Post titles:', posts.map(p => p.title));
 } catch (error) {
   console.error('Error fetching Medium RSS:', error);
 }
