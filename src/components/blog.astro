@@ -1,32 +1,79 @@
 ---
+import Parser from 'rss-parser';
+
+const parser = new Parser();
+const MEDIUM_RSS_URL = 'https://medium.com/feed/@stevenflanagan.dev';
+
+let posts = [];
+try {
+  const feed = await parser.parseURL(MEDIUM_RSS_URL);
+  posts = feed.items.slice(0, 3);
+} catch (error) {
+  console.error('Error fetching Medium RSS:', error);
+}
+
+// Extract first image from HTML content
+function extractImageFromContent(content: string): string | null {
+  const imgMatch = content?.match(/<img[^>]+src="([^">]+)"/);
+  return imgMatch ? imgMatch[1] : null;
+}
+
+// Format date to readable string
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
 ---
 
-<section id="section" class="w-full py-24 border-t border-[#ffffff10]">
+<section id="blog" class="w-full py-24 border-t border-[#ffffff10]">
     <div class="max-w-5xl mx-auto">
         <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Articles</h2>
         <h3 class="text-4xl text-white md:text-5xl font-medium mb-8">Blog</h3>
-        <div class="flex w-full h-48 border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl">
-            <div class="w-1/3 h-full">
-                <img class="h-full rounded-xl rounded-r-none" src="public/coming-soon.png" alt="asdasd">
+
+        {posts.length > 0 ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts.map((post) => {
+                    const thumbnail = extractImageFromContent(post.content || post['content:encoded']);
+                    const excerpt = post.contentSnippet || post.content?.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+
+                    return (
+                        <a
+                            href={post.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex flex-col bg-[#1414149c] border border-[var(--white-icon-tr)] rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
+                        >
+                            {thumbnail && (
+                                <div class="w-full h-48 overflow-hidden">
+                                    <img
+                                        src={thumbnail}
+                                        alt={post.title}
+                                        class="w-full h-full object-cover"
+                                    />
+                                </div>
+                            )}
+                            <div class="p-6 flex-1 flex flex-col">
+                                <h4 class="text-xl font-medium text-[var(--white)] mb-2 line-clamp-2">
+                                    {post.title}
+                                </h4>
+                                <p class="text-sm text-[var(--white-icon)] mb-4 flex-1 line-clamp-3">
+                                    {excerpt}
+                                </p>
+                                <div class="flex items-center justify-between text-xs text-[var(--sec)]">
+                                    <span>{formatDate(post.pubDate || post.isoDate)}</span>
+                                    <span>Read on Medium →</span>
+                                </div>
+                            </div>
+                        </a>
+                    );
+                })}
             </div>
-            <div class="w-2/3 h-ful rounded-xl rounded-l-none">
-                <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Articles</h2>
+        ) : (
+            <div class="text-center py-12">
+                <p class="text-[var(--white-icon)] text-lg">
+                    No blog posts found. Check back soon!
+                </p>
             </div>
-        </div>
-        <div class="flex w-full h-48 border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl">
-            <div class="w-1/3 h-full">
-                <img class="h-full rounded-xl rounded-r-none" src="public/coming-soon.png" alt="asdasd">
-            </div>
-            <div class="w-2/3 h-ful rounded-xl rounded-l-none">
-                <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Articles</h2>
-            </div>
-        </div>
-        <div class="flex w-full h-48 border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl">
-            <div class="w-1/3 h-full">
-                <img class="h-full rounded-xl rounded-r-none" src="public/coming-soon.png" alt="asdasd">
-            </div>
-            <div class="w-2/3 h-ful rounded-xl rounded-l-none">
-                <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Articles</h2>
-            </div>
-        </div>
+        )}
+    </div>
 </section>
